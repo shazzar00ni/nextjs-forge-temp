@@ -6,7 +6,10 @@ const openai = createOpenAI({
   compatibility: 'strict',
 });
 
-export const models = {
+export const models: {
+  chat: ReturnType<typeof openai>;
+  embeddings: ReturnType<typeof openai>;
+} = {
   chat: openai('gpt-4o-mini'),
   embeddings: openai('text-embedding-3-small'),
 };
